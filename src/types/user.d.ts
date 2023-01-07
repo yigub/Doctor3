@@ -66,5 +66,12 @@ type Patient = {
   defaultFlag: number
   gender: number
 }
-
-export { User, CodeType, UserInfo, familyType, Patient }
+// 6.编辑患者时，编辑成功后提交的类型
+type typeEdit={
+  name: string
+  idCard: string
+  defaultFlag: number
+  gender: number
+  id:string
+}
+export { User, CodeType, UserInfo, familyType, Patient, singlePatient, typeEdit }

@@ -20,7 +20,7 @@ defineProps<{
     title: string
     value: string | number
   }[]
-  modelValue: string | number
+  modelValue: string | number|undefined
 }>()
 // 2.父组件给本组件传递了一个gender，用来控制默认选中的是谁。当我们需要切换选中的时候，就需要修改父组件传过来的gender参数
 const emits = defineEmits<{
