@@ -9,7 +9,7 @@ import 'virtual:svg-icons-register'
 // 1. 引入vant样式
 import 'vant/lib/index.css'
 //2. 引入自定义的css,且这个文件必须放在vant样式之后，因为我们会手写很多样式覆盖掉vant默认的样式
-import './styles/main.css'
+import './styles/main.scss'
 
 const app = createApp(App)
 app.use(router)
