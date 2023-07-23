@@ -42,34 +42,34 @@ type DoctorParams = {
   pageSize: number
 }
 // 7.返回回来的单个关注医生类型，即医生卡片对象
-type Doctor={
-   // 医生ID
-   id: string
-   // 医生名称
-   name: string
-   // 头像
-   avatar: string
-   // 医院名称
-   hospitalName: string
-   // 医院等级
-   gradeName: string
-   // 科室
-   depName: string
-   // 职称
-   positionalTitles: string
-   // 是否关注，0 未关注 1 已关注
-   likeFlag: 0 | 1
-   // 接诊服务费
-   serviceFee: number
-   // 接诊人数
-   consultationNum: number
-   // 评分
-   score: number
-   // 主攻方向
-   major: string
+type Doctor = {
+  // 医生ID
+  id: string
+  // 医生名称
+  name: string
+  // 头像
+  avatar: string
+  // 医院名称
+  hospitalName: string
+  // 医院等级
+  gradeName: string
+  // 科室
+  depName: string
+  // 职称
+  positionalTitles: string
+  // 是否关注，0 未关注 1 已关注
+  likeFlag: 0 | 1
+  // 接诊服务费
+  serviceFee: number
+  // 接诊人数
+  consultationNum: number
+  // 评分
+  score: number
+  // 主攻方向
+  major: string
 }
 // 8.医生列表
-type DoctorList=Doctor[]
+type DoctorList = Doctor[]
 // 9.医生分页数据，即发请求时返回回来的总的数据类型
 type DoctorPage = {
   pageTotal: number
@@ -84,14 +84,14 @@ type likeType = 'doc' | 'knowledge' | 'topic' | 'disease'
 // 11.1 这是引入的枚举类型
 import { ConsultType, IllnessTime } from '@/enums'
 // 11.2 这是请求参数里的图片列表
-export type Image = {
+type Image = {
   // 图片ID
   id: string
   // 图片地址
   url: string
 }
 // 11.3 这是请求参数里的问诊记录，这里暂时没有开药的那些参数，因为目前极速问诊还用不上（此处写这些类型是为极速问诊准备的）
-export type Consult = {
+type Consult = {
   // 问诊记录ID
   id: string
   // 问诊类型
@@ -115,8 +115,24 @@ export type Consult = {
 }
 
 // 11.4 问诊记录-使用Partial（内置的泛型类型）将其变为全部可选
-export type PartialConsult = Partial<Consult>
+type PartialConsult = Partial<Consult>
 
+// 12.1 请求科室信息返回的一级科室数据类型
+type SubDep = {
+  // 科室ID
+  id: string
+  // 科室名称
+  name: string
+}
+// 12.2 返回的总的科室数据类型
+type TopDep = {
+  // 科室ID
+  id: string
+  // 科室名称
+  name: string
+  // 二级科室数组
+  child: SubDep[]
+}
 
 export {
   knowledgeType,
@@ -128,5 +144,10 @@ export {
   Doctor,
   DoctorList,
   DoctorPage,
-  likeType
+  likeType,
+  PartialConsult,
+  Image,
+  Consult,
+  TopDep,
+  SubDep
 }
