@@ -5,7 +5,8 @@ import type {
   KnowledgePage,
   DoctorParams,
   DoctorPage,
-likeType
+  likeType,
+  TopDep
 } from '@/types/consult'
 
 // 1.首页里，点击关注/推荐/减脂/饮食时，发起不同类型的请求
@@ -19,3 +20,6 @@ export const getDoctorPage = (params: DoctorParams) =>
 // 3.定义关注和取消关注医生的方法
 export const likeDoctor = (type: likeType, id: string) =>
   request('/like', 'POST', { type, id })
+
+// 4.定义请求一级科室和二级科室的方法
+export const getAllDep = () => request<TopDep>('/dep/all', 'GET')
